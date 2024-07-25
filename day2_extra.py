@@ -1,5 +1,5 @@
 # This is day 2 extra homework
-
+import math
 # Section 1 - List Creation and Accessing
 print("Section 1 - List Creation and Accessing")
 
@@ -228,3 +228,77 @@ print("--------------------------------------")
 # Section 10 - 2D List
 print("Section 10 - 2D List")
 
+# Create the 2D list lst_data
+lst_data = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+]
+
+# Create lst_sub_data by extracting the 0th and 2nd index of each row in lst_data
+lst_sub_data = [[row[0], row[2]] for row in lst_data]
+
+print(lst_sub_data)
+print("--------------------------------------")
+
+# Section 11 - Matrix representation using List
+print("Section 11 - Matrix representation using List")
+
+mat_a = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+]
+
+mat_b = [
+    [2, 4, 6],
+    [1, 3, 5],
+    [1, 0, 1]
+]
+def add_matrices(a, b):
+    result = [[a[i][j] + b[i][j] for j in range(len(a[0]))] for i in range(len(a))]
+    return result
+
+
+def subtract_matrices(a, b):
+    result = [[a[i][j] - b[i][j] for j in range(len(a[0]))] for i in range(len(a))]
+    return result
+
+
+def multiply_matrices(a, b):
+    result = [[ sum(a[i][k] * b[k][j] for k in range(len(a[0]))) for j in range(len(b[0]))] for i in range(len(a))]
+    return result
+    
+# Calculate sum, difference, and dot product
+sum_result = add_matrices(mat_a, mat_b)
+difference_result = subtract_matrices(mat_a, mat_b)
+dot_product_result = multiply_matrices(mat_a, mat_b)
+
+# Print the results
+print("Tổng:", sum_result)
+print("Hiệu:", difference_result)
+print("Dot Product:", dot_product_result)
+print("--------------------------------------")
+
+# Section 12 - List Comprehension
+print("Section 12 - List Comprehension")
+stop_words = ["I", "love", "and", "to"]
+input = "I love AI and listen to music"
+output = [item for item in input.split() if item not in stop_words]
+print(output)
+
+# Section 13 - List and Tuple
+my_tuple1 = (2, 3)
+my_tuple2 = (3, 6)
+
+sum_vector = (my_tuple1[0] + my_tuple2[0], my_tuple1[1] + my_tuple2[1])
+product_vector = (my_tuple1[0] * my_tuple2[0], my_tuple1[1] * my_tuple2[1])
+print(f"Result_vector1 = {sum_vector}, Result_vector2 = {product_vector}")
+
+# Task 3: Distance between the two vectors
+distance = math.sqrt((my_tuple1[0] - my_tuple2[0])**2 + (my_tuple1[1] - my_tuple2[1])**2)
+print(f"Distance: {distance}")
+
+# Task 4: Index of the value 3 in my_tuple1
+index_of_3 = my_tuple1.index(3)
+print(f"Index of 3 in my_tuple1: {index_of_3}")
